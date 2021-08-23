@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body {
+  overflow: hidden;
+  margin: 0;
+  width: 99%;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  .left-container {
+    box-sizing: border-box;
+    border: 2px solid rgb(93, 93, 93);
+    width: 50%;
+
+    .block-in-left-container {
+      width: 630px;
+      height: 630px;
+      margin: 50% auto;
+      transform: translateY(-50%);
+      display: flex;
+      align-content: center;
+
+      .for-align-center {
+        width: 100%;
+      }
+
+      h1 {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 50px;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .right-container {
+    box-sizing: border-box;
+    width: 50%;
+    border: 2px solid rgb(93, 93, 93);
+    position: relative;
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 50px;
+      opacity: 0.8;
+    }
+
+    h2 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 20px;
+      opacity: 0.8;
+    }
+  }
+
+}
+
+.btn {
+  border-radius: 5px;
+  margin-top: 80px;
+  margin-left: 30%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 40px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:active {
+  background: #656565;
+  transition: background-color 0.2s;
+}
+
+.btn:disabled {
+  background-color: silver;
+}
+
+.btn:hover {
+  background: #656565;
+  transition: background-color 0.5s;
+}
+
+.btn:disabled:hover {
+  background-color: silver;
+}
+
+
+

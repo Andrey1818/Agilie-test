@@ -1,0 +1,13 @@
+<div class="info-locate" *ngIf="placeInfoService.locationInfo">
+  <h1 class="title-info">
+    Name: {{
+    placeInfoService.locationInfo.district
+    || placeInfoService.locationInfo.administrative
+    || placeInfoService.locationInfo.country.en || placeInfoService.locationInfo.country.de}}
+  </h1>
+  <h2>Population: {{placeInfoService.locationInfo.population}}</h2>
+  <h2 *ngIf="placeInfoService.locationInfo.postcode">Postcode: {{placeInfoService.locationInfo.postcode[0]}}</h2>
+  <h2 *ngIf="placeInfoService.locationInfo._geoloc">Geolocation: {{placeInfoService.locationInfo._geoloc.lat}}
+    , {{placeInfoService.locationInfo._geoloc.lng}}</h2>
+  <h2>Admin level: {{placeInfoService.locationInfo.admin_level}}</h2>
+</div>

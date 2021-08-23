@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="left-container">
+    <div class="block-in-left-container">
+      <div class="for-align-center">
+        <h1>Dashboard</h1>
+        <input
+          (click)="locationError = false"
+          (keyup)="listenKey()"
+          [(ngModel)]="search"
+          [ngStyle]="{
+              border: locationError? 'none' : true,
+              borderBottom: locationError? '3px solid red' : true,
+              borderRadius: locationError? '0' : true
+            }"
+          placeholder="Search location..."
+          type="text"
+        >
+        <div
+          *ngIf="arrLocate?.length; else text"
+          [ngStyle]="{
+              border: locationError? '3px solid red' : true
+            }"
+          class="block-locations"
+        >
+          <div
+            (click)="chose(locate)"
+            *ngFor="let locate of arrLocate"
+            appDashboardChose
+            class="locate"
+          >
+            <h4><b>{{locate.district || locate.administrative || locate.country.en || locate.country.de}}</b></h4>
+          </div>
+        </div>
+        <ng-template #text>
+          <h2>Your search results will appear here</h2>
+        </ng-template>
+        <button
+          (click)="submit(locate)"
+          [disabled]="submitted"
+          class="btn"
+        >Submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="right-container">
+    <img
+      alt="BAD PHOTO"
+      src="https://oir.mobi/uploads/posts/2021-05/1622291502_1-oir_mobi-p-cherno-belii-peizazh-priroda-krasivo-foto-1.jpg">
+  </div>
+</div>
+
+<div
+  *ngIf="locationError"
+  [@visibility]
+  id="location-error"
+>
+  <div class="text-inside-error">
+    <h3>Please select a location!</h3>
+  </div>
+</div>

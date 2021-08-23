@@ -1,0 +1,96 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <div class="left-container">
+    <div class="block-in-left-container">
+      <div class="for-align-center">
+        <h1>Register</h1>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <input
+            placeholder="Email"
+            type="email"
+            formControlName="email"
+            id="email"
+            [ngClass]="{
+             noConfirm: errorEmail
+          }">
+          <div
+            *ngIf="form.get('email')?.touched && form.get('email')?.errors?.email && !errorEmail
+              || form.get('email')?.invalid && form.get('email')?.touched && !errorEmail"
+            class="validation-alert"
+          >
+            <small>Email is required</small>
+          </div>
+          <div *ngIf="errorEmail" class="validation-alert">
+            <small>Email is exist or required</small>
+          </div>
+
+          <input placeholder="Password" type="password" formControlName="password">
+          <div
+            class="validation-alert"
+            *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+          >
+            <small>Password is required</small>
+          </div>
+
+          <input
+            placeholder="Confirm Password"
+            type="password"
+            formControlName="confirmPass"
+            [ngClass]="{
+              noConfirm : form.get('confirmPass')?.value !== form.get('password')?.value
+            }"
+          >
+          <div
+            class="validation-alert"
+            *ngIf="form.get('confirmPass')?.touched
+               && form.get('confirmPass')?.invalid
+               || form.get('confirmPass')?.value !== form.get('password')?.value
+               && form.get('confirmPass')?.touched"
+          >
+            <small>Confirmation does not match password</small>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox" (click)="checkbox()">
+            <label>I agree to Terms and Condition</label>
+          </div>
+          <button
+            type="submit"
+            [disabled]="
+            form.invalid
+            || !formCheckbox
+            || form.get('confirmPass')?.value !== form.get('password')?.value
+            || submitted"
+            class="btn"
+          >Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-container">
+    <img
+      src="https://is4-ssl.mzstatic.com/image/thumb/Music124/v4/fd/e8/14/fde814de-db54-eddd-5d41-c81edda84275/647603404851.jpg/1200x1200bf-60.jpg"
+      alt="BAD PHOTO">
+  </div>
+</div>
+
+<div
+  id="success-registration"
+  *ngIf="successMessage"
+  [@visibility]
+>
+  <div id="success-message">
+    <h2>You have successfully registered!</h2>
+  </div>
+</div>
+
+<div
+  *ngIf="noSession"
+  [@visibility]
+  id="session-end"
+>
+  <div class="text-inside-error">
+    <h3>The session has expired. Register now! </h3>
+  </div>
+</div>

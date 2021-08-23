@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="left-container">
+    <div class="spinner" *ngIf="this.placeInfoService.load"></div>
+    <div class="block-in-left-container">
+      <div class="for-align-center">
+        <h1>Place info</h1>
+        <button
+          class="btn"
+          (click)="changeInfoVis()"
+          [routerLink]="['/dashboard/place-info/info']"
+          [disabled]="placeInfoService.locationInfo || placeInfoService.load"
+        >Get information
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="right-container">
+    <h1 id="right-container-title">Location</h1>
+    <h2 *ngIf="!info ; else informationBlock">
+      There will be information about the selected location
+    </h2>
+
+    <ng-template #informationBlock>
+      <div class="route-info">
+        <router-outlet></router-outlet>
+      </div>
+    </ng-template>
+  </div>
+</div>

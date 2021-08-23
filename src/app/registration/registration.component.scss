@@ -1,0 +1,103 @@
+
+input {
+  display: block;
+  margin-top: 50px;
+  border: 3px solid #656565;
+  width: 60%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 15px;
+  outline: none;
+  padding: 5px;
+
+  &.ng-invalid.ng-touched {
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid red;
+    transition: border-bottom-color 0.3s;
+  }
+
+  &.noConfirm.ng-touched {
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid red;
+    transition: border-bottom-color 0.3s;
+  }
+}
+
+input:hover {
+  border: 3px solid black;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border: none;
+  border-radius: 0;
+  border-bottom: 3px solid #54f5f5;
+  transition: border-bottom-color 0.5s;
+}
+
+.checkbox-container {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 20px;
+  align-items: center;
+
+  label {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  input {
+    width: 15px;
+    margin-top: 2px;
+  }
+}
+
+.validation-alert {
+  small {
+    color: red;
+  }
+}
+
+#success-registration {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 10px;
+  width: 300px;
+  height: auto;
+  z-index: 3;
+  text-align: center;
+  border: 3px solid #7af6f6;
+  background: white;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #57e5c6;
+
+  #success-message {
+    width: 300px;
+  }
+}
+
+#session-end {
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 10px;
+  width: 300px;
+  height: auto;
+  z-index: 3;
+  text-align: center;
+  border: 3px solid #ff6c6c;
+  background: white;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  color: red;
+
+  .text-inside-error {
+    width: 300px;
+  }
+}
